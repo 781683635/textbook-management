@@ -1,0 +1,42 @@
+// 高校教材管理系统.odl : type library source for 高校教材管理系统.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (高校教材管理系统.tlb).
+
+[ uuid(C80F8B5E-FD60-4298-9774-17DE938D4288), version(1.0) ]
+library My
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CMyDoc
+	
+	[ uuid(FB44E33C-2DAB-45C4-9CB0-A0AEF826CC9D) ]
+	dispinterface IMy
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMyDoc)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMyDoc)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CMyDoc
+	
+	[ uuid(D7F993BF-0F30-4421-885E-0763742935B1) ]
+	coclass Document
+	{
+		[default] dispinterface IMy;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

@@ -1,0 +1,29 @@
+
+use 高校教材管理数据库
+go
+
+--建立[SQL_游客]登录账户、数据库用户
+exec sp_addlogin N'SQL_游客', '000', '高校教材管理数据库', '简体中文'
+exec sp_grantdbaccess N'SQL_游客', N'SQL_游客'
+grant SELECT ON [dbo].[教材基本信息表]  TO [SQL_游客]
+grant SELECT ON [dbo].[出版社基本信息表]  TO [SQL_游客]
+grant SELECT ON [dbo].[供应商基本信息表]  TO [SQL_游客]
+grant SELECT ON [dbo].[学生取书表]  TO [SQL_游客]
+ 
+ 
+ --建立[SQL_学生]登录账户、数据库用户
+exec sp_addlogin N'SQL_学生', '000', '高校教材管理数据库', '简体中文'
+exec sp_grantdbaccess N'SQL_学生', N'SQL_学生'
+exec sp_addrolemember 'db_datareader',N'SQL_学生'
+grant INSERT ON [dbo].[负责人信息表]  TO [SQL_学生]
+grant UPDATE ON [dbo].[负责人信息表]  TO [SQL_学生]
+grant DELETE ON [dbo].[负责人信息表]  TO [SQL_学生]
+grant UPDATE ON [dbo].[学生取书表]  TO [SQL_学生]
+grant INSERT ON [dbo].[学生取书表]  TO [SQL_学生]
+
+
+
+ --建立[SQL_管理员]登录账户、数据库用户
+exec sp_addlogin N'SQL_管理员', '000', '高校教材管理数据库', '简体中文'
+exec sp_grantdbaccess N'SQL_管理员', N'SQL_管理员'
+exec sp_addrolemember 'db_owner', N'SQL_管理员'
